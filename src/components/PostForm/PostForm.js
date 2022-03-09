@@ -9,7 +9,7 @@ function PostForm() {
 
   const { currentUser } = useAuth();
   
-  const projectNameRef = useRef('')
+  const projectNameRef = useRef()
   const domainRef = useRef();
   const tsRef = useRef();
   const rsRef = useRef();

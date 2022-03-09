@@ -13,8 +13,30 @@ import Githubfind from "./Githubfind"
 // import DevFind from "./DevFind"
 import PostForm from "./PostForm/PostForm.js";
 import ColabPage from "./ColabPage/ColabPage.js";
+import { useAuth } from "../contexts/AuthContext"
+import { getDatabase,ref,child,get } from "firebase/database"
 
 function App() {
+
+  var finalData = {};
+
+  async function fireBaseFetch() {
+    const dbRef = ref(getDatabase());
+    await get(child(dbRef, `posts/`)).then((snapshot) => {
+        if(snapshot.exists()) {
+            finalData = snapshot.val();
+            // console.log(finalData)
+        }else {
+            console.log("No data");
+        }
+    }).catch((error) => {
+        console.log(error);
+    })
+}
+
+  finalData = fireBaseFetch()
+  
+
   return (
     // <Container
     //   className="d-flex align-items-center justify-content-center"
@@ -33,13 +55,14 @@ function App() {
               {/* <Route path="/article" component={Post} /> */}
               {/* <Route path='dev-find' component={DevFind} /> */}
               <Route path="/postform" component={PostForm} />
-              <Route path="/colab" component={ColabPage} />
+              <Route path="/colab" component={ColabPage} finalData = {finalData} />
             </Switch>
           </AuthProvider>
         </Router>
       </div>
     // </Container>
   )
+  module.exports = finalData
 }
 
 export default App
