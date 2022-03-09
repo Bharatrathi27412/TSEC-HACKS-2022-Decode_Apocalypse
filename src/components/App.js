@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute"
 import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
 import PostForm from "./PostForm/PostForm.js";
+import ColabPage from "./ColabPage/ColabPage.js";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
               <Route path="/postform" component={PostForm} />
+              <Route path="/colab" component={ColabPage} />
             </Switch>
           </AuthProvider>
         </Router>

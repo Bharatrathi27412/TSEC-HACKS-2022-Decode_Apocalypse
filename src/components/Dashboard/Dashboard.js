@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom"
 import ProfileCard from "../ProfileCard/ProfileCard.js";
 import ProPost from "../ProPost/ProPost.js";
 import TopBar from "../TopBar/TopBar.js";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import "./dashboard.css";
 
 export default function Dashboard() {
@@ -36,6 +38,18 @@ export default function Dashboard() {
           <ProPost />
         </div>
       </div>
+
+
+<div>
+	<Popup trigger={<button> Click to open popup </button>}
+	position="right center">
+	<div>GeeksforGeeks</div>
+	<button>Click here</button>
+	</Popup>
+</div>
+
+
+
     </div>
   )
 }

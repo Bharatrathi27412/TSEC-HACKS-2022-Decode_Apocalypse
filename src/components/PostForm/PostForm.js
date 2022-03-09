@@ -39,7 +39,7 @@ function PostForm() {
           <div className="rs">
             <TextField
               id="outlined-basic"
-              label="Required Skill"
+              label="Required Partner Skill"
               name="rs"
               variant="standard"
               required
