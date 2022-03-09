@@ -8,6 +8,9 @@ import Login from "./Login"
 import PrivateRoute from "./PrivateRoute"
 import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
+import Githubfind from "./Githubfind"
+// import Post from "./Post"
+// import DevFind from "./DevFind"
 import PostForm from "./PostForm/PostForm.js";
 import ColabPage from "./ColabPage/ColabPage.js";
 
@@ -23,9 +26,12 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
+              <Route path="/git-result" component={Githubfind} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
+              {/* <Route path="/article" component={Post} /> */}
+              {/* <Route path='dev-find' component={DevFind} /> */}
               <Route path="/postform" component={PostForm} />
               <Route path="/colab" component={ColabPage} />
             </Switch>
