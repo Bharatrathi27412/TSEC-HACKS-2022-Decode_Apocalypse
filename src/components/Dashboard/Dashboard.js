@@ -5,14 +5,20 @@ import { Link, useHistory } from "react-router-dom"
 import ProfileCard from "../ProfileCard/ProfileCard.js";
 import ProPost from "../ProPost/ProPost.js";
 import TopBar from "../TopBar/TopBar.js";
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
+// import Popup from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
+//import 'bootstrap/dist/css/bootstrap.css';
+import Modal from 'react-bootstrap/Modal';
 import "./dashboard.css";
 
 export default function Dashboard() {
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   const history = useHistory()
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   async function handleLogout() {
     setError("")
@@ -31,6 +37,7 @@ export default function Dashboard() {
       <div className="row">
         <div className="profile">
           <ProfileCard />
+          <button>New Post</button>
         </div>
         <div className="posts">
           <ProPost />
@@ -38,18 +45,6 @@ export default function Dashboard() {
           <ProPost />
         </div>
       </div>
-
-
-<div>
-	<Popup trigger={<button> Click to open popup </button>}
-	position="right center">
-	<div>GeeksforGeeks</div>
-	<button>Click here</button>
-	</Popup>
-</div>
-
-
-
     </div>
   )
 }
