@@ -1,12 +1,19 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
+import { Form, Button, Card, Alert, Container } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+
+
 
 export default function Signup() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
+  const githubRef= useRef()
+  const stackRef= useRef()
+  const domainRef= useRef()
+  const userRef= useRef()
+
   const { signup } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
@@ -22,7 +29,7 @@ export default function Signup() {
     try {
       setError("")
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
+      await signup(emailRef.current.value, passwordRef.current.value,githubRef.current.value,domainRef.current.value,stackRef.current.value,userRef.current.value)
       history.push("/")
     } catch {
       setError("Failed to create an account")
@@ -33,32 +40,63 @@ export default function Signup() {
 
   return (
     <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Sign Up
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>
-      </div>
+          <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+
+              <form onSubmit={handleSubmit}>
+                <h3 className="mb-4">REGISTER</h3>
+                {error && <Alert variant="danger">{error}</Alert>}
+
+
+                <div className="form-group">
+                     <label>Username</label>
+                    <input type="text" className="form-control" placeholder="Username" ref={userRef}/>
+                </div>
+
+                {/* <div className="form-group">
+                    <label>Last name</label>
+                    <input type="text" className="form-control" placeholder="Last name" />
+                </div>  */}
+
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" className="form-control" placeholder="Enter email" ref={emailRef}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Github Link</label>
+                    <input type="text" className="form-control" placeholder="Enter Github Link" ref={githubRef}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Preferred Domain</label>
+                    <input type="text" className="form-control" placeholder="Web, App, ..." ref={domainRef}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Preferred Tech Stack/ Language</label>
+                    <input type="text" className="form-control" placeholder="Mern, Full Stack, Python..." ref={stackRef}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" className="form-control" placeholder="Enter password" ref={passwordRef}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" className="form-control" placeholder="Confirm Password" ref={passwordConfirmRef}/>
+                </div>
+
+
+                <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
+                <p className="forgot-password text-left mt-2">
+                    Already registered? <Link to="/login">Log In</Link>
+                </p>
+            </form>
+            </div>
+            </Container>
     </>
   )
 }
+

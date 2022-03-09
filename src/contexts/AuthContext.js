@@ -14,11 +14,16 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
   const database = getDatabase();
 
-  function signup(email, password) {
+  function signup(email, password,github,pref_domain,pref_stack,user_name) {
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        set(ref(database, 'users/' + auth.currentUser.uid + '/profile'), {
+        set(ref(database, 'users/' + auth.currentUser.uid), {
           userEmail: email,
+          githubLink: github,
+          domain: pref_domain,
+          stack: pref_stack,
+          username: user_name,
+
         })
       })
   }
