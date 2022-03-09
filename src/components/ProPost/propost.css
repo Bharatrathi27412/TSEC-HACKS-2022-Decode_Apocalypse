@@ -1,0 +1,13 @@
+.e-card-image {
+  background: url('https://pbs.twimg.com/profile_images/913095041526022144/lhg0O9_W_400x400.jpg');
+  height: 220px;
+  ;
+}
+
+.e-card {
+  border-radius: 25px 25px 25px 25px;
+  width: 650px;
+  height: 300px;
+  margin: auto;
+  margin-top: 10px;
+}
