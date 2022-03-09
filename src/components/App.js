@@ -12,6 +12,7 @@ import Githubfind from "./Githubfind"
 // import Post from "./Post"
 // import DevFind from "./DevFind"
 import PostForm from "./PostForm/PostForm.js";
+import ProForm from "./ProForm/ProForm.js";
 import ColabPage from "./ColabPage/ColabPage.js";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
               {/* <Route path="/article" component={Post} /> */}
               {/* <Route path='dev-find' component={DevFind} /> */}
               <Route path="/postform" component={PostForm} />
+              <Route path="/proform" component={ProForm} />
               <Route path="/colab" component={ColabPage} />
             </Switch>
           </AuthProvider>

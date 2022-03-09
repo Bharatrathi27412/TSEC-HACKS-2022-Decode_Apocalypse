@@ -22,7 +22,7 @@ function Topbar() {
         <div className="topbarLinks">
           <span className="topbarLink">Home</span>
           <span className="topbarLink">Collaborate</span>
-          <span className="topbarLink">Messaging</span>
+          {/* <span className="topbarLink">Messaging</span> */}
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
