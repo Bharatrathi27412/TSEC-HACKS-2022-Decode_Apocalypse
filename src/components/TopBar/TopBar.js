@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import "./topbar.css";
 import { Search, Person, Chat, Notifications, Home } from "@material-ui/icons";
+import { Button } from "react-bootstrap";
+import { useAuth } from "../../contexts/AuthContext";
 // import "../../assets/myimg.jpeg";
 
 function Topbar() {
+
+  const { logout } = useAuth()
+
+  function handleLogout(){
+    try{
+      logout()
+    } catch {
+      console.log("error")
+    }
+  }
+
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -28,6 +41,7 @@ function Topbar() {
           <div className="topbarIconItem">
             <Notifications />
             <span className="topbarIconBadge">3</span>
+            <Button variant="primary" onClick={handleLogout}>Logout</Button>
           </div>
         </div>
         <img
