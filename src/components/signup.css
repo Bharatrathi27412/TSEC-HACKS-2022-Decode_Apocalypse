@@ -1,0 +1,13 @@
+.signup-body {
+    background-image: url("./images/login.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.reg-title {
+    color: white;
+}
+
+label {
+    font-weight: bold;
+}

@@ -1,17 +1,16 @@
 .row {
-    display: grid;
-    grid-gap: 25px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-.add-post {
-  background-color: #00cec9;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px 40px;
-  border-radius: 10px;
-  margin: 10px 50px;
-  cursor: pointer;
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
- 
+
+.newPost {
+background-color: #00cec9;
+color: white;
+font-size: 18px;
+font-weight: bold;
+padding: 10px 40px;
+border-radius: 10px;
+margin: 10px 80px;
+cursor: pointer;
+}

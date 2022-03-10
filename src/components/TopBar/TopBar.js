@@ -3,6 +3,7 @@ import "./topbar.css";
 import { Search, Person, Chat, Notifications, Home } from "@material-ui/icons";
 import { Button } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 // import "../../assets/myimg.jpeg";
 
 function Topbar() {
@@ -33,14 +34,17 @@ function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <span className="topbarLink">Home</span>
+        <Link to="/">
+          <span className="topbarLink" style={{"color": "white"}}>Home</span>
+        </Link>
+        <Link to="/colab" style={{"color":"white"}}>
           <span className="topbarLink">Collaborate</span>
+        </Link>
           {/* <span className="topbarLink">Messaging</span> */}
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
             <Notifications />
-            <span className="topbarIconBadge">3</span>
             <Button variant="primary" onClick={handleLogout}>Logout</Button>
           </div>
         </div>

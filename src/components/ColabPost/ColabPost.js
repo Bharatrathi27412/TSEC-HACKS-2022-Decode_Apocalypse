@@ -108,15 +108,15 @@ function ColabPost(props) {
       <>
       <Container>
     <div className="e-card">
-      <div className="e-card-title">Ashray Shetty </div>
+      <div className="e-card-title">Bharat Rathi </div>
       <div className="e-card-content">
           <p>Project Name: {props.name}</p>
           <p>Domain: {props.domain}</p>
           <p>Preferred Tech Stack: {props.pts}</p>
-          <p>Required Skill: {props.ts}</p>
+          <p>Required Skill: {props.rs}</p>
           <p>Description: {props.desc}</p>
       </div>
-      <Button className="collaborate" variant="success" onClick={SendEmail(props.id)}>Collaboarte</Button>
+      <Button className="collaborate" variant="success" onClick={()=>{window.location.href="https://github.com/Bharatrathi27412"}}>Collaborate</Button>
     </div>
     </Container>
     </>

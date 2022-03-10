@@ -1,14 +1,15 @@
 import React from "react";
+import { propTypes } from "react-bootstrap/esm/Image";
 import "./propost.css";
 
 
-function ProPost() {
+function ProPost(props) {
   return (<div className="e-card">
         <div className="e-card-image">
-          <div className="e-card-title">Ashray Shetty </div>
+          <div className="e-card-title">Bharat Rathi </div>
         </div>
         <div className="e-card-content">
-          JavaScript Succinctly was written to give readers an accurate, concise examination of JavaScript objects and their supporting nuances, such as complex values, primitive values, scope, inheritance, the head object, and more. </div>
+          {props.desc} </div>
       </div>);
 }
 

@@ -49,18 +49,17 @@ function App() {
           <AuthProvider>
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />
-              <PrivateRoute path="/update-profile" component={UpdateProfile} />
-              <PrivateRoute path="/profile" component={Profile} />
+              <PrivateRoute exact path="/profile" component={Profile} />
 
-              <Route path="/git-result" component={Githubfind} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route path="/forgot-password" component={ForgotPassword} />
-              {/* <Route path="/article" component={Post} /> */}
-              {/* <Route path='dev-find' component={DevFind} /> */}
-              <Route path="/postform" component={PostForm} />
-              <Route path="/proform" component={ProForm} />
-              <Route path="/colab" component={ColabPage} />
+              <PrivateRoute exact path="/git-result" component={Githubfind} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
+              <PrivateRoute exact path="/forgot-password" component={ForgotPassword} />
+              {/* <PrivateRoexact ute path="/article" component={Post} /> */}
+              {/* <PrivateRoexact ute path='dev-find' component={DevFind} /> */}
+              <PrivateRoute exact path="/postform" component={PostForm} />
+              <PrivateRoute exact path="/proform" component={ProForm} />
+              <PrivateRoute exact path="/colab" component={ColabPage} />
             </Switch>
           </AuthProvider>
         </Router>

@@ -5,7 +5,7 @@ function ProfileCard() {
   return (
     <div className="card1">
       <div className="top1">
-        <h2 className="name1">Ashray Shetty</h2>
+        <h2 className="name1" style={{fontWeight:"bold"}}>Ashray Shetty</h2>
         <img
           className="circle-img1"
           src="https://pbs.twimg.com/profile_images/913095041526022144/lhg0O9_W_400x400.jpg"

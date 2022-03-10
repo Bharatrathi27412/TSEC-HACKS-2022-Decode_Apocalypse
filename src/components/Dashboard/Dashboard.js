@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Card, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import ProfileCard from "../ProfileCard/ProfileCard.js";
 import ProPost from "../ProPost/ProPost.js";
 import TopBar from "../TopBar/TopBar.js";
+import { getDatabase, ref, child, get } from "firebase/database"
 // import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
 //import 'bootstrap/dist/css/bootstrap.css';
@@ -31,18 +32,58 @@ export default function Dashboard() {
     }
   }
 
+  let finalData = {};
+  const [newData, setNewData] = useState([]);
+  // const [newUser, setNewUser] = useState([]);
+
+
+  async function fireBaseFetch() {
+    const dbRef = ref(getDatabase());
+    await get(child(dbRef, `proposts/`)).then((snapshot) => {
+      setNewData(snapshot.val())
+      console.log(newData)
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
+  // async function fireBaseFetch() {
+  //   const dbUserRef = ref(getDatabase());
+  //   await get(child(dbUserRef, `users/`)).then((snapshot) => {
+  //     setNewUser(snapshot.val())
+  //     console.log(newUser)
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   })
+  // }
+
+  useEffect(async () => {
+    await fireBaseFetch()
+    setTimeout(() => { }, 1000)
+    // console.log("hel", newData)
+  }, [])
+
   return (
     <div>
       <TopBar />
       <div className="row">
         <div className="profile">
           <ProfileCard />
-          <button className="add-post">New Post</button>
+          <Link to="/proform">
+          <button className="newPost">New Post</button>
+          </Link>
         </div>
         <div className="posts">
-          <ProPost />
-          <ProPost />
-          <ProPost />
+          {
+            Object.keys(newData).map(function (val) {
+              console.log(newData[val].desc)
+              return (
+                <ProPost
+                  desc={newData[val].desc}
+                />
+              )
+            })
+          }
         </div>
       </div>
     </div>

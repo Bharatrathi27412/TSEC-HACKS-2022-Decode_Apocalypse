@@ -1,9 +1,30 @@
 import React,{ useRef, useState } from 'react'
 import { getDatabase,ref,child,get } from "firebase/database"
 import { useAuth } from "../contexts/AuthContext"
+import Topbar from './TopBar/TopBar';
+import { Card } from "react-bootstrap"
+
+
+
+const Project= ()=>{
+    return (
+    <Card style={{ width: '22rem' }}>
+    <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+        Some quick example text to build on the card title and make up the bulk of
+        the card's content.
+        </Card.Text>
+        <Card.Link href="#">Card Link</Card.Link>
+    </Card.Body>
+    </Card>
+    );
+
+}
 
 function Githubfind() {
 
+    const [data,setData] = useState([])
     const nameRef = useRef();
     const { currentUser } = useAuth();
     var finalData = {};
@@ -14,7 +35,7 @@ function Githubfind() {
         await get(child(dbRef, `posts/`)).then((snapshot) => {
             if(snapshot.exists()) {
                 finalData = snapshot.val();
-                console.log()
+                console.log(finalData)
             }else {
                 console.log("No data");
             }
@@ -45,14 +66,36 @@ function Githubfind() {
             // }
             d = da.items.slice(0,10)
         })
-        console.log(d);
+        // console.log(d);
+        setData(d);
+        console.log(data)
     }
 
   return (
-    <div>
+      <>
+      <Topbar/>
+    <div style={{display: "flex",justifyContent:"center",alignItems:"center"}} className="mt-4">
         <input type='text' ref={nameRef} />
-        <button onClick={(e) => handleSubmit(e)}>Click Me</button>
+        <button onClick={(e) => handleSubmit(e)}>Search</button>
+        {/* {
+            d.map((val)=>{
+                console.log(val)
+                return (
+                    <Project 
+                    
+                   // clone_url={val.items[i].clone_url}
+                    //description = {val.items[i].description}
+                    //name= {val.items[i].name}
+
+                    />
+                );
+
+            })
+        } */}
     </div>
+
+    </>
+
   )
 }
 

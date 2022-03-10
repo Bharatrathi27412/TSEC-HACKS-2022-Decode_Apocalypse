@@ -156,10 +156,9 @@ function Profile() {
 
         <Card style={{ width: '25rem', border:"2px solid #000",boxSizing:"border-box", borderRadius:"10px"}}>
         <Card.Body>
-            <Card.Title>Project Title</Card.Title>
+            <Card.Title>Docket- Book Sharing website</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+            This is a platform where users from around the world will be able to upload any book so that other users can use it. This project currently only support books for Engineering, but others can be provided in the future.
             </Card.Text>
         </Card.Body>
         {/* <ListGroup className="list-group-flush">
@@ -168,7 +167,26 @@ function Profile() {
             <ListGroupItem>Vestibulum at eros</ListGroupItem>
         </ListGroup> */}
         <Card.Body>
-            <Card.Link href="#">Github Link</Card.Link>
+            <Card.Link href="https://github.com/shettyvashray/Docket-BookSharingWebsite">Github Link</Card.Link>
+        </Card.Body>
+        </Card>
+
+        <br></br>
+
+        <Card style={{ width: '25rem', border:"2px solid #000",boxSizing:"border-box", borderRadius:"10px"}}>
+        <Card.Body>
+            <Card.Title>Wally- Expense Tracker</Card.Title>
+            <Card.Text>
+            This is a JAVA based application, using mysql as a database. This app will help track your monthly spending with the help of charts.
+            </Card.Text>
+        </Card.Body>
+        {/* <ListGroup className="list-group-flush">
+            <ListGroupItem>Cras justo odio</ListGroupItem>
+            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+            <ListGroupItem>Vestibulum at eros</ListGroupItem>
+        </ListGroup> */}
+        <Card.Body>
+            <Card.Link href="https://github.com/shettyvashray/Wally-ExpenseTracker">Github Link</Card.Link>
         </Card.Body>
         </Card>
         </div>
