@@ -1,9 +1,11 @@
 import React from 'react'
-import Topbar from './Topbar'
+import "bootstrap/dist/css/bootstrap.min.css"
+
 import {Container, Button, Modal,Card} from "react-bootstrap"
 import {useState, useRef} from "react";
 import { useAuth } from '../contexts/AuthContext';
 import { getDatabase, ref, child, get, set,push} from "firebase/database";
+import Topbar from './TopBar/TopBar';
 import {
     collection,
     getDocs,

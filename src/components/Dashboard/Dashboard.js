@@ -37,7 +37,7 @@ export default function Dashboard() {
       <div className="row">
         <div className="profile">
           <ProfileCard />
-          <button>New Post</button>
+          <button className="add-post">New Post</button>
         </div>
         <div className="posts">
           <ProPost />

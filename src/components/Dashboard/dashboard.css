@@ -4,7 +4,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-button {
+.add-post {
   background-color: #00cec9;
   color: white;
   font-size: 18px;

@@ -35,6 +35,7 @@ function ColabPage(props) {
       <div className="row">
         {
           Object.keys(newData).map(function(val){
+            console.log(newData[val])
             console.log(newData[val].domain)
             return (
               <ColabPost
@@ -43,6 +44,7 @@ function ColabPage(props) {
               pts = {newData[val].techStack}
               rs = {newData[val].requiredSkill}
               desc = {newData[val].desc}
+              id= {newData[val].userId}
               />
             )
           })

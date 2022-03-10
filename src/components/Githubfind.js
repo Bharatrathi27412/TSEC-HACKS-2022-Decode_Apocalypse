@@ -11,9 +11,10 @@ function Githubfind() {
 
     async function fireBaseFetch() {
         const dbRef = ref(getDatabase());
-        await get(child(dbRef, `users/${currentUser.uid}`)).then((snapshot) => {
+        await get(child(dbRef, `posts/`)).then((snapshot) => {
             if(snapshot.exists()) {
                 finalData = snapshot.val();
+                console.log()
             }else {
                 console.log("No data");
             }
@@ -28,9 +29,9 @@ function Githubfind() {
         const userName = nameRef.current.value
         console.log(userName);
         await fireBaseFetch();
-        console.log(finalData.likes[1])
+        // console.log(finalData.likes[1])
 
-        await fetch(`https://api.github.com/search/repositories?q=stars:>=500+language:${finalData.likes[1]}+in:${finalData.likes[0]}&sort=stars&order=desc`)
+        await fetch(`https://api.github.com/search/repositories?q=stars:>=500+language:python+in:java&sort=stars&order=desc`)
         .then(res => res.json())
         .then((da) => {
             console.log(da);
